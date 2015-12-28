@@ -1,0 +1,30 @@
+template: Hello, %s!
+defaultName: Stranger
+
+server:
+    type: default
+    applicationConnectors:
+       - type: http
+         port: 8085
+    
+    requestLog:
+        timeZone: UTC
+        appenders:
+         - type: file
+           currentLogFilename: logs/access.log
+           archive: true
+           archivedLogFilenamePattern: logs/access-%d.log.gz
+           archivedFileCount: 10
+
+# Logging settings.
+logging:
+
+  # The default level of all loggers. Can be OFF, ERROR, WARN, INFO, DEBUG, TRACE, or ALL.
+  level: INFO
+  appenders:
+    - type: file
+      currentLogFilename: logs/app.log
+      archive: true
+      archivedLogFilenamePattern: logs/app-%d.log.gz
+      archivedFileCount: 10
+      timeZone: UTC

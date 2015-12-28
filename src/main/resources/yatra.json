@@ -1,0 +1,8 @@
+{
+	"uri": "http://hotelssoa.mmt.mmt/HotelsSOA/hotels/search/v1.0/hotelSearch"
+	"headers": {
+		"Content-Type": "application/xml"
+	}
+	"entity": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<MMTHotelSearchRequest>\n<POS>\n<Requestor type=\"AFF\" idContext=\"AFF\" id=\"AFF13416\" channel=\"AFF\"/>\n<Source iSOCurrency=\"INR\"/>\n<Token>AFF13416</Token>\n</POS>\n<ResultPreferences>\n<ResultPreference>\n<Pagination paginate=\"true\" page=\"1\" limit=\"5\"/>\n</ResultPreference>\n</ResultPreferences>\n<ResultTransformer>\n<GuestRecommendationEnabled maxRecommendations=\"2\">true</GuestRecommendationEnabled>\n<PriceBreakupEnabled>true</PriceBreakupEnabled>\n</ResultTransformer>\n<SearchCriteria>\n<Criterion>\n<Area>\n<CityCode>TCC</CityCode>\n<CountryCode>IN</CountryCode>\n</Area>\n<HotelRef id=\"\" idContext=\"\"/>\n<RoomStayCandidates>\n<RoomStayCandidate>\n<GuestCounts>\n<GuestCount count=\"1\" ageQualifyingCode=\"10\">\n<Ages/>\n</GuestCount>\n<GuestCount count=\"0\" ageQualifyingCode=\"8\">\n<Ages/>\n</GuestCount>\n</GuestCounts>\n</RoomStayCandidate>\n</RoomStayCandidates>\n<StayDateRanges>\n<StayDateRange start=\"2015-06-04\" end=\"2015-06-06\"/>\n</StayDateRanges>\n</Criterion>\n</SearchCriteria>\n</MMTHotelSearchRequest>"
+
+}
