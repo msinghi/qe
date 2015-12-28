@@ -39,7 +39,7 @@
         </constructor-arg>
     </bean>
 
-	<bean id="MyThreadFactory" class="com.msinghi.thread.ThreadFactoryImpl">
+	<bean id="MyThreadFactory" class="com.qe.QeThreadFactory">
 		<property name="threadNamePattern" value="app-%d" />
 		<property name="daemon" value="true" />
 	</bean>

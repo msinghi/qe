@@ -18,6 +18,12 @@ public class ExpediaQueryIterator implements Iterator<HttpQuery> {
     public HttpQuery next() {
         return new HttpQuery(new BasicHttpRequest("GET", "http://www.google.com"));
     }
+
+	@Override
+	public void remove() {
+		// TODO Auto-generated method stub
+		
+	}
     
     
 

@@ -16,6 +16,7 @@ public class HttpJobController<T> {
     private ExecutorService executorService;
     private Iterator<HttpQuery> queryIterator;
 
+    
     public HttpJobController(JobConfig jobConfig, Iterator<HttpQuery> queryIterator,
             HttpQueryProcessor<T> httpQueryProcessor, ExecutorService executorService) {
 
@@ -27,13 +28,14 @@ public class HttpJobController<T> {
 
     public void submit() throws ClientProtocolException, IOException {
 
-        int tps = jobConfig.getTransactionsPerSecond();
+        double tps = jobConfig.getTransactionsPerSecond();
 
         RateLimiter rateLimiter = RateLimiter.create(tps); // 2 per second
 
         while (queryIterator.hasNext()) {
 
             rateLimiter.acquire();
+            System.out.println(System.currentTimeMillis());
             HttpQuery query = queryIterator.next();
             httpQueryProcessor.submit(query);
 

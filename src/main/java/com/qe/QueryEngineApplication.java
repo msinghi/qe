@@ -4,14 +4,17 @@ import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
+import java.io.IOException;
 import java.util.Map;
 
 import javax.ws.rs.Path;
 
+import org.apache.http.client.ClientProtocolException;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.codahale.metrics.MetricRegistry;
+import com.qe.core.HttpJobController;
 
 public class QueryEngineApplication extends Application<QueryEngineConfiguration> {
     
@@ -30,7 +33,7 @@ public class QueryEngineApplication extends Application<QueryEngineConfiguration
     }
 
     @Override
-    public void run(QueryEngineConfiguration configuration, Environment environment) {
+    public void run(QueryEngineConfiguration configuration, Environment environment) throws ClientProtocolException, IOException {
 
         // add isActiveResource and buildInfoResource
         final MetricRegistry registry = environment.metrics();
@@ -53,6 +56,9 @@ public class QueryEngineApplication extends Application<QueryEngineConfiguration
         for (final Map.Entry<String, Object> entry : resources.entrySet()) {
             environment.jersey().register(entry.getValue());
         }
+        
+        HttpJobController jobController = (HttpJobController) applicationContext.getBean("sampleController");
+        jobController.submit();
         
     }
 

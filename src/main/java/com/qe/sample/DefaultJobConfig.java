@@ -5,8 +5,8 @@ import com.qe.core.JobConfig;
 public class DefaultJobConfig implements JobConfig {
 
     @Override
-    public int getTransactionsPerSecond() {
-        return 1;
+    public double getTransactionsPerSecond() {
+        return .5;
     }
 
 }
